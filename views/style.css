@@ -1,0 +1,28 @@
+body {
+  
+  width:60%;
+  margin-left:auto;
+  margin-right:auto;
+     
+}
+
+h1 {
+	
+	color: red ;
+	font: 38px "Helvetica Nueue", "Lucida Grande", Arial, sans-serif;
+}
+
+h2 {
+
+	font: 16px "Helvetica Nueue", "Lucida Grande", Arial, sans-serif;
+	
+}
+
+h3 {
+	
+	font:  12px "Helvetica Nueue", "Lucida Grande", Arial, sans-serif;
+}
+td {
+	
+	padding: 10px 10px 10px 10px
+}

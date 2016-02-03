@@ -1,0 +1,34 @@
+doctype html
+html
+	include header.jade
+	body()
+		table
+			tr
+				td
+					h1 Welcome to your TVPlayer !
+					a(href="/pair"): img(src="./images/pair.png" height="50" width="50")
+				td
+					a(href="/"): img(src="./images/tv.png")
+		table
+			tr
+				td: h2 Paired Users:
+				if pairedUserNames.length > 0
+					each user in pairedUserNames
+						td: h2(style={color: 'red'}): a(href='#' onclick='getFavourites(\'#{user}\')') #{user}
+				else
+					td: h2(style={color: 'red'}) No users paired 
+				
+		hr/
+		table
+			tr
+				td
+					h2(id="userNameLabel" style={display:'none'}) Hi there
+				td
+					h2(id="userNameData" style={color: 'red', display:'none'})
+			tr
+				td
+					h2(id="favouritesLabel" style={display:'none'}) Favourite Channels
+				td
+					h2(id="favouritesData" style={color: 'red', display:'none'})
+				td
+					h2: span(id="logout")				  
