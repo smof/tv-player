@@ -1,5 +1,11 @@
 //General client side JavaScript
 
+//Request water shed content access
+function requestWaterShedContentAccess(){
+	
+	alert("Request Sent");
+	
+}
 
 //Interacts with /logout endpoint to remove user from the datastore
 function logout(userName){
@@ -41,15 +47,34 @@ function getFavourites(userName){
 	    	//Checks if the pairing has taken place...
 	    	if (JSON.parse(xhr.response).favourites != ''){
 	    		
-	    		//Updated UI with favourites
+	    		//Update UI with favourites
 	       		document.getElementById("favouritesLabel").style.display='block'
 	    		document.getElementById("favouritesData").style.display='block'
 	    		document.getElementById("favouritesData").innerHTML=JSON.parse(xhr.response).favourites;
 	       		
+	       		//Update UI with username data
 	       		document.getElementById("userNameLabel").style.display='block';
 	       		document.getElementById("userNameData").style.display='block';
 	       		document.getElementById("userNameData").innerHTML=userName;
-	       			    			    		
+	       		
+	       		//Update UI with waterShedContent response
+	       		document.getElementById("waterShedContentLabel").style.display='block';
+	       		document.getElementById("waterShedContentData").style.display='block';
+	       		
+	       		//Pull in boolean and update icon accordingly
+	       		waterShedContentResponse=JSON.parse(xhr.response).waterShedContent;
+	       		
+	       		if(waterShedContentResponse == 'true'){
+	       		
+	       			document.getElementById("waterShedContentData").innerHTML="<img src='./images/true.png' height='40' width='40'/>"
+	       			
+	       		}else {
+	       			
+	       			document.getElementById("waterShedContentData").innerHTML="<img src='./images/false.png' height='40' width='40'/>"
+	       			document.getElementById("waterShedContentRequest").innerHTML="<a href='#' onclick='requestWaterShedContentAccess()'>Request Access</a>"	
+	       		}
+	       		
+	       		
 	    	}
 	    	
 	    	//No favourites returned

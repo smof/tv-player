@@ -33,7 +33,7 @@ exports.render = function(req,res){
 	var CLIENTID="TVPlayer";
 	var CLIENTSECRET="Passw0rd";
 	var RESPONSE_TYPE="token";
-	var SCOPE="postaladdress%20givenname";
+	var SCOPE="description%20givenname%20postaladdress";
 	//Base64 encoded OAuth2 client credentials
   	var CLIENTCREDS = CLIENTID + ":" + CLIENTSECRET;
 	var B64CLIENTCREDS = new Buffer(CLIENTCREDS).toString('base64');
@@ -77,7 +77,7 @@ exports.render = function(req,res){
 						
 						//Send result back to the UI to be rendered for notification
 						//res.json({paired: paired})
-						res.status(200).json({favourites:userInfoResponseObj.postaladdress})
+						res.status(200).json({favourites:userInfoResponseObj.description, waterShedContent:userInfoResponseObj.postaladdress})
 						
 					});
 				}

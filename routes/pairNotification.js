@@ -12,7 +12,7 @@ exports.render = function(req,res){
 	var CLIENTID="TVPlayer";
 	var CLIENTSECRET="Passw0rd";
 	var RESPONSE_TYPE="token";
-	var SCOPE="postaladdress%20givenname";
+	var SCOPE="description%20givenname%20postaladdress";
 	//Base64 encoded OAuth2 client credentials
   	var CLIENTCREDS = CLIENTID + ":" + CLIENTSECRET;
 	var B64CLIENTCREDS = new Buffer(CLIENTCREDS).toString('base64');

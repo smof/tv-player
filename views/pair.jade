@@ -6,29 +6,33 @@ html
 			pollPairing('#{deviceCode}')
 		},#{interval}*1000)
 	body()
-		table
-			tr
-				td
-					h1 Welcome #{firstName} to your TVPlayer !
-					a(href="/pair"): img(src="./images/pair.png" height="50" width="50")
-				td
-					a(href="/"): img(src="./images/tv.png")
-		hr/
-		table
-			tr
-				td
-					h2 Pairing Device...
-				td(id="paired" style={display:'none'}): img(src="./images/paired.png" width="35" height="35")
-				td(id="pairing" style={display:'block'}): img(src="./images/spinner.gif" width="40" height="40")
-					
-			tr
-				td
-					h2 Go to the following URL:
-				td
-					h2(style={color: 'red'}) #{verifyURL}
-			tr
-				td
-					h2 Enter the following user code:
-				td
-					h2(style={color: 'red'}) #{userCode}
-		hr/
+		br/
+		br/
+		br/
+		br/
+		br/
+		div
+			table
+				tr
+					td
+						h1 TVPlayer 1.0
+						a(href="/"): img(src="./images/home.png" height="50" width="50")
+						a(href="/pair"): img(src="./images/pair.png" height="50" width="50" style="padding: 0 0 0 10px")
+			hr/
+			table
+				tr
+					td
+						h2 Pairing Device...
+					td(id="paired" style={display:'none'}): img(src="./images/paired.png" width="35" height="35")
+					td(id="pairing" style={display:'block'}): img(src="./images/spinner.gif" width="40" height="40")
+						
+				tr
+					td
+						h2 Go to the following URL:
+					td
+						h2(style={color: 'red'}) #{verifyURL}
+				tr
+					td
+						h2 Enter the following user code:
+					td
+						h2(style={color: 'red'}) #{userCode}
