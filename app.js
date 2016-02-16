@@ -19,6 +19,7 @@ var logout = require('./routes/logout.js');
 var pair = require('./routes/pair.js');
 var pairNotification = require('./routes/pairNotification.js');
 var favourites = require('./routes/favourites.js');
+var requestWaterShedAccess = require('./routes/requestWaterShedAccess.js');
 
 //Globals ==============================================================================================
 var port = 3001; //Listener port
@@ -29,7 +30,8 @@ app.get('/', index.render);
 app.post('/logout', logout.render);
 app.get('/pair', pair.render);
 app.post('/pairNotification', pairNotification.render);
-app.post('/favourites', favourites.render)
+app.post('/favourites', favourites.render);
+app.post('/requestWaterShedAccess', requestWaterShedAccess.render);
 
 
 //Start App

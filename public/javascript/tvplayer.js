@@ -1,9 +1,26 @@
 //General client side JavaScript
 
 //Request water shed content access
-function requestWaterShedContentAccess(){
+function requestWaterShedContentAccess(userName){
 	
-	alert("Request Sent");
+	//Create a basic HTTP request..
+	var xhr = new XMLHttpRequest();
+	
+	//Send a post to the /requestWaterShedAccess endpoint with the userName of the child requiring access
+	xhr.open('POST', '/requestWaterShedAccess', true);
+	xhr.setRequestHeader('Content-type', 'application/json');
+	xhr.send(JSON.stringify({userName: userName}));
+	
+	//Wait until the request has completed then ping response back to the ui
+	xhr.onreadystatechange = function () {
+	    var DONE = this.DONE || 4;
+	    if (this.readyState === DONE){
+	    	
+	    	//Send something back to the UI
+	    	alert("Request to watch post 9pm content sent");
+	    	
+	    }
+	}
 	
 }
 
@@ -71,7 +88,7 @@ function getFavourites(userName){
 	       		}else {
 	       			
 	       			document.getElementById("waterShedContentData").innerHTML="<img src='./images/false.png' height='40' width='40'/>"
-	       			document.getElementById("waterShedContentRequest").innerHTML="<a href='#' onclick='requestWaterShedContentAccess()'>Request Access</a>"	
+	       			document.getElementById("waterShedContentRequest").innerHTML="<a href='#' onclick=\"requestWaterShedContentAccess('" + userName + "');\">Request Access</a>"
 	       		}
 	       		
 	       		
@@ -92,10 +109,6 @@ function getFavourites(userName){
 	    	}
 	    	
 	    	document.getElementById("logout").innerHTML="<a href='#' onclick=\"logout('" + userName + "');\"><img src='./images/logout.png' height='40' width='40'/></a>"
-	    	
-	    	//Update the logout button link
-	    	console.log("Username: " + userName);
-	    	
 	    	 	
 	    }
 	};
