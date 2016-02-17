@@ -38,7 +38,7 @@ exports.render = function(req,res){
 	} //close accessRequestCallback
 	
 	//JSON object to be sent to IDM to instantiate the workflow.  Needs the workflow name the user to apply the request to
-	payload = JSON.parse({"_key" : workflowId, "userName": submittedUserName});
+	payload = JSON.stringify({"_key" : workflowId, "userName": submittedUserName});
 	
 	//HTTP Post payload data
 	var accessRequest = http.request(options, accessRequestCallback);
