@@ -25,10 +25,17 @@ html
 						h2 Pairing Device...
 					td(id="paired" style={display:'none'}): img(src="./images/paired.png" width="35" height="35")
 					td(id="pairing" style={display:'block'}): img(src="./images/spinner.gif" width="40" height="40")
-						
 				tr
 					td
-						h2 Go to the following URL:
+						h2 Take a snap of the following:		
+					td
+						span(id="qrcode")
+							script.
+								var url="#{verifyURL}?user_code=#{userCode}";
+								new QRCode(document.getElementById('qrcode'), url);
+				tr
+					td
+						h2 Alternatively go to:
 					td
 						h2(style={color: 'red'}) #{verifyURL}
 				tr
